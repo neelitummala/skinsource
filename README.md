@@ -26,18 +26,18 @@ For simplicity, the GUI only displays the time-averaged (RMS) skin acceleration 
 The example scripts in the examples/ folder may provide a helpful introduction to writing your own code that interfaces with SkinSource. Before running the examples, please be sure to run PathSetup.m, which will set up the MATLAB paths required to run these scripts. The SkinSource toolbox includes two objects---SkinSource and SkinSourceVisualization. The SkinSource object is primarily responsible for interfacing with the dataset, convolving user-specified inputs with the impulse responses, and projecting 3-axis results to a single axis (if desired by the user). The SkinSourceVisualization object includes a number of helpful methods to enable users to visualize the results of the SkinSource object on a 2D hand model. For more information about these objects, use "help SkinSource" and "help SkinSourceVisualization" in the MATLAB command line and click on Documentation.
 
 ### Walking through an Example - SinusoidVibrationsExample.m
--Load "Constants", which is a struct containing several necessary constants, such as the sampling frequency and file paths. This should be called at the beginning of any file you write. 
--Define the following:
-    -Upper limb model number. This must be an integer between 1 and 4. 
-    -One or more input location numbers. This must be an array of non-repeating integers between 1 and 20 (see documentation/input.png). 
-    -Parameters for the sinusoid input stimuli, including frequency, phase, amplitude, and signal length. 
-    -Interpolation and projection parameters for visualization of the resulting skin vibrations.
--Instantiate SkinSource and SkinSourceVisualization objects.
--For each sinusoid frequency:
-    -Construct an input sinusoid stimulus using the generatesinusoidinput function.
-    -Predict the resulting skin vibrations with the getoutputvibrations function. This function convolves the stimulus with the impulse responses for the selected impulse responses.
-    -Project the output skin vibrations onto a single axes with the desired projection parameters using the projectvibrations function.
-    -Visualize the RMS amplitude of the projected skin vibrations (in dB) on a 2D upper limb surface using the plotrmsvibrations function.
+- Load "Constants", which is a struct containing several necessary constants, such as the sampling frequency and file paths. This should be called at the beginning of any file you write. 
+- Define the following:
+    - Upper limb model number. This must be an integer between 1 and 4. 
+    - One or more input location numbers. This must be an array of non-repeating integers between 1 and 20 (see documentation/input.png). 
+    - Parameters for the sinusoid input stimuli, including frequency, phase, amplitude, and signal length. 
+    - Interpolation and projection parameters for visualization of the resulting skin vibrations.
+- Instantiate SkinSource and SkinSourceVisualization objects.
+- For each sinusoid frequency:
+    - Construct an input sinusoid stimulus using the generatesinusoidinput function.
+    - Predict the resulting skin vibrations with the getoutputvibrations function. This function convolves the stimulus with the impulse responses for the selected impulse responses.
+    - Project the output skin vibrations onto a single axes with the desired projection parameters using the projectvibrations function.
+    - Visualize the RMS amplitude of the projected skin vibrations (in dB) on a 2D upper limb surface using the plotrmsvibrations function.
 
 ### ImpulseResponseExample.m
 - Plots the z-axis time-domain impulse response at 7 output locations for an input applied to the tip of digit III (perpendicular) of upper limb model 4. Also plots the interpolated impulse response field across the whole upper limb at individual time steps. Corresponds to Fig. 1C in the associated publication.
